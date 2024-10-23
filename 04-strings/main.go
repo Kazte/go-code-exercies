@@ -47,13 +47,18 @@ func main() {
 
 	// index access
 	fmt.Println("char at index 3", string(message[3]))
-
+	
 	// sub strings
 	fmt.Println("sub string", message[1:5])
 
 	// palindrome
 	newString := "Live on time, emit no evil"
 	fmt.Printf("is \"%s\" palindrome? %v\n", newString, isPalindrome(newString))
+
+  // anagram
+  textA := "listen"
+  textB := "silent"
+  fmt.Printf("is \"%s\" and \"%s\" an anagram? %v\n", textA, textB, isAnagram(textA, textB))
 }
 
 func isPalindrome(text string) bool {
@@ -74,3 +79,18 @@ func isPalindrome(text string) bool {
 
 	return true
 }
+
+
+func isAnagram(textA string, textB string) bool{
+  splitWord := strings.Split(textA, "")
+
+  for i := 0; i < len(splitWord); i++{
+    if strings.Count(textA, splitWord[i]) != strings.Count(textB, splitWord[i]){
+      return false;
+    }
+  }
+
+	return true
+}
+
+
